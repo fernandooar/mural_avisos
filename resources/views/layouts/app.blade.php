@@ -11,8 +11,10 @@
 
      @stack('styles') {{-- Para CSS específico de páginas filhas --}}
  </head>
-
-
+<?php
+use App\Models\Usuario;
+$usuario = Usuario::find(1); // Substitua 1 pelo ID do usuário que você deseja exibir
+?>
  <body>
      @section('header') {{-- Este é o slot onde o cabeçalho será inserido --}}
      <header>
@@ -34,11 +36,8 @@
                              </a>
                              <ul class="dropdown-menu">
                                  <li><a class="dropdown-item" href="{{route('views.cadastro')}}">Cadastrar</a></li>
-                                 <li><a class="dropdown-item" href="#">Another action</a></li>
-                                 <li>
-                                     <hr class="dropdown-divider">
-                                 </li>
-                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                 <li><a class="dropdown-item" href="#">Link 1</a></li>
+                                 <li><a class="dropdown-item" href="#">Link 2</a></li>
                              </ul>
                          </li>
                          <li class="nav-item dropdown">
@@ -49,10 +48,8 @@
                                  <li><a class="dropdown-item" href="{{route('views.index')}}">Listar Usuários</a></li>
                                  <li><a class="dropdown-item" href="{{route('views.editar', ['id' => $usuario->id]) }}">Editar</a></li>
                                  <li><a class="dropdown-item" href="{{route('views.cadastrar')}}">Cadastrar</a></li>
-
                              </ul>
                          </li>
-
                      </ul>
 
                  </div>

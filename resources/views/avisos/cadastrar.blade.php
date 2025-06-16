@@ -1,33 +1,40 @@
+@extends('layouts.app')
 
-    @extends('layouts.app')
-
-    @section('content')
-    <div>
+@section('content')
+<div class="container mt-4">
+    <div class="alert alert-info" role="alert">
+        <strong>Instruções:</strong> Preencha o formulário abaixo para cadastrar um novo aviso.
     <h1>Cadastrar Aviso</h1>
-        <h3>Cadastrar aviso</h3>
-        <form action="{{Route('api.cadastro_avisos')}}" method="POST">
-            @csrf
-            <div>
-                <label for="titulo">Titulo</label>
-                <input type="text" name="titulo" id="titulo">
-            </div>
-            <div>
-                <label for="descricao">Descrição</label>
-                <textarea name="descricao" id="descricao"></textarea>
-            </div>
+    <div class="mb-4">
+        <form class="form-control " action="{{Route('api.cadastro_avisos')}}" method="POST">
+        
+        {{--
+         * é uma funcionalidade essencial no Laravel para proteger sua aplicação
+         * contra ataques de 'Falsificação de Requisição Entre Sites' (CSRF - Cross-Site Request Forgery).
+         --}}
+        @csrf
+        <div class="mb-3 form-group">
+            <label class="form-label" for="titulo">Titulo</label>
+            <input class="form-control" type="text" name="titulo" id="titulo">
+        </div>
+        <div class="mb-3 form-group">
+            <label class="form-label" for="descricao">Descrição</label>
+            <textarea class="form-control" name="descricao" id="descricao"></textarea>
+        </div>
 
-            <div>
-                <label for="link">Link</label>
-                <input type="text" name="link" id="link">
-            </div>
-
-
-            <div>
-                <button type="submit">Cadastrar</button>
-            </div>
-        </form>
+        <div class="mb-3 form-group">
+            <label class="form-label" for="link">Link</label>
+            <input class="form-control" type="text" name="link" id="link">
+        </div>
+        <div>
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+        </div>
+    </form>
     </div>
-    <div>
-        <a href="{{route('views.index')}}">Voltar</a>
-    </div>
+
+    
+</div>
+<div>
+    <a class="btn btn-secondary" href="{{route('views.index')}}">Voltar</a>
+</div>
 @endsection

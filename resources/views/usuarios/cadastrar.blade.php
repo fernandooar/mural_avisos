@@ -1,22 +1,34 @@
 @extends('layouts.app')
 @section('content')
 
-    <h1>Cadastro de Usuário</h1>
-
-    <form action="{{ route('api.cadastrar_usuario')}}" method="POST">
-        @csrf 
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+    <div class="container mt-4">
+        <div class="alert alert-info" role="alert">
+            <strong>Instruções:</strong> Preencha o formulário abaixo para cadastrar um novo usuário.
+            <h1>Cadastrar Usuário</h1>
+            <div class="mb-4">
+                <form class="form-control" action="{{ route('api.cadastrar_usuario') }}" method="POST">
+                    @csrf
+                    <div class="mb-3 form-group">
+                        <label class="form-label" for="nome">Nome:</label>
+                        <input class="form-control" type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label class="form-label" for="email">Email:</label>
+                        <input class="form-control" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label class="form-label" for="password">Senha:</label>
+                        <input class="form-control" type="password" id="password" name="password" required>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit">Cadastrar</button>
+                        <a class="btn btn-secondary" href="{{ route('views.index') }}">Voltar</a>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <div class="alert alert-secondary" role="alert">
+            <strong>Observação:</strong> Após o cadastro, você poderá visualizar a lista de usuários cadastrados.
         </div>
-        <div>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Cadastrar</button>
-    </form>
+    </div>
 @endsection

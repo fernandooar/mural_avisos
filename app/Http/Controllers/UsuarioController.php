@@ -11,7 +11,7 @@ class UsuarioController extends Controller
     //
     public function cadastrar()
     {
-        return view('usuarios.cadastroUsuario');
+        return view('usuarios.cadastrar');
     }
 
     /**

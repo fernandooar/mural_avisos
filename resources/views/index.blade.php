@@ -1,17 +1,18 @@
-@extends('layouts.app') {{-- IMPORTANTE: Estende o layout app.blade.php --}}
+@extends('layouts.header') {{-- IMPORTANTE: Estende o layout app.blade.php --}}
+@extends('components.card_teste')
 @section('content') {{-- Preenche o slot 'content' do layout --}}
 <div class="jumbotron bg-light p-4 rounded-3">
     <h1 class="display-4">Bem-vindo ao Mural de Avisos</h1>
     <p class="lead">Este é o mural de avisos, aqui serão publicados todos os avisos importantes.</p>
-    <hr class="my-4">
-    
+    <hr class="my-4">    
 </div>
 
 <div class="row mt-5 border-top border-bottom border-dark pt-4">
     @foreach ($avisos as $aviso)
-    <div class="col-md-4">
+    <div class="col-md-4 ">
         <div class="card mb-4 shadow-lg border-primary">
             <div class="card-body">
+               
                 <h5 class="card-title">{{ $aviso->titulo }}</h5>
                 <p class="card-text">{{ $aviso->descricao }}</p>
                 <a href="{{ $aviso->link }}" class="btn btn-sm btn-outline-secondary">Ver Mais</a>
@@ -25,8 +26,6 @@
 
 </div>
 @endsection
-
-
 {{--
     * Exemplo de CSS e JavaScript adicionais para esta página.
     * Estes estilos e scripts serão carregados apenas nesta página, se necessário.

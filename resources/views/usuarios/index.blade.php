@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.header')
 @section('contentUsuarios') {{-- Preenche o slot 'content' do layout --}}
 <?php
 use App\Models\Usuario;

@@ -24,6 +24,12 @@ Route::get('/', function () {
     return view('index', ['avisos' => $avisos]);
 })->name('home');
 
+// Route::get('/', function () {
+//     $avisos = Aviso::all();
+//     return view('teste', ['avisos' => $avisos]);
+// })->name('home');
+
+
 Route::prefix('/avisos')->group(function (){
     Route::get('/cadastro', [AvisoController::class, 'cadastro'])->name('views.cadastro');
     Route::get('/editar/{id}', [AvisoController::class, 'edicao'])->name('views.editar');

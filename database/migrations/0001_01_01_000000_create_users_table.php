@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id()->primary();
-            $table->string('nome')->nullable()->comment('Coluna responsovel para garavar dados do nome do usuario!');
-            $table->string('email')->unique();
+            $table->string('nome',255)->nullable()->comment('Coluna responsovel para garavar dados do nome do usuario!');
+            $table->string('email',255)->unique();
             $table->string('senha');
             $table->timestamp('data_criacao')->useCurrent();
             $table->timestamp('data_edicao')->useCurrent()->useCurrentOnUpdate();

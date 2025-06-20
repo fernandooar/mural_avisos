@@ -17,7 +17,7 @@ class Aviso extends Model
         'link',
         'id_usuario'
     ];
-
+    
     public function usuario(): BelongsTo{
         return $this->belongsTo(Usuario::class);
     }
